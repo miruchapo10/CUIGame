@@ -35,7 +35,7 @@ int main(void)
 {
 	int level = 1;
 	int score=0,tmp_score=0;
-	bool move_flag = true; //‚±‚êˆÈ~“®‚­‚©‚Ìƒtƒ‰ƒO
+	bool move_flag = true; //ã“ã‚Œä»¥é™å‹•ãã‹ã®ãƒ•ãƒ©ã‚°
 	int robo_num = 0;
 	int judge_result;
 	int field[Y + 5][X + 5];
@@ -59,7 +59,7 @@ int main(void)
 			move_robots(field, human, robo, robo_num);
 			judge_result = judge(field, human, robo, robo_num);
 			score=score_calc(robo,robo_num,level);
-			if (judge_result == 1){ //ƒQ[ƒ€ƒI[ƒo[‚Ìê‡
+			if (judge_result == 1){ //ã‚²ãƒ¼ãƒ ã‚ªãƒ¼ãƒãƒ¼ã®å ´åˆ
 				fprintf(fp, "%d", score);
 				fputc('\n', fp);
 				printf("score:%d\n", score);
@@ -67,7 +67,7 @@ int main(void)
 			}
 			field_print(field);
 			printf("score:%d\n", score);
-			if (judge_result == 2) { //ƒŒƒxƒ‹ƒNƒŠƒA‚µ‚½ê‡
+			if (judge_result == 2) { //ãƒ¬ãƒ™ãƒ«ã‚¯ãƒªã‚¢ã—ãŸå ´åˆ
 				score+=level*10;
 				printf("score:%d\n",score);
 				printf("level%d Clear!\n\n", level);
@@ -129,9 +129,9 @@ void field_print(int field[Y + 5][X + 5])
 		for (j = 0; j < X + 2; j++) {
 			if (i == 0 || i == Y + 1) printf("-");
 			else if (j == 0 || j == X + 1) printf("|");
-			else if (field[i][j] == 1) printf("+"); //ƒƒ{ƒbƒg
-			else if (field[i][j] == 2) printf("@"); //ƒvƒŒƒCƒ„[
-			else if (field[i][j] == 3) printf("*"); //ƒXƒNƒ‰ƒbƒv
+			else if (field[i][j] == 1) printf("+"); //ãƒ­ãƒœãƒƒãƒˆ
+			else if (field[i][j] == 2) printf("@"); //ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼
+			else if (field[i][j] == 3) printf("*"); //ã‚¹ã‚¯ãƒ©ãƒƒãƒ—
 			else printf(" ");
 		}
 		printf("\n");
@@ -147,10 +147,10 @@ int move_human(int field[Y + 5][X + 5], info_t* human)
 	while (1) {
 		tmp_x = human->x;
 		tmp_y = human->y;
-		printf("Press the key(0~9),'p':‚±‚êˆÈ~“®‚©‚È‚¢:");
+		printf("Press the key(0~9),'p':ã“ã‚Œä»¥é™å‹•ã‹ãªã„:");
 		c = getch();
 		printf("%c\n", c);
-		if (c == 'p') { //‚±‚êˆÈ~“®‚©‚È‚¢
+		if (c == 'p') { //ã“ã‚Œä»¥é™å‹•ã‹ãªã„
 			field[human->y][human->x] = 2;
 			return 1;
 		}
